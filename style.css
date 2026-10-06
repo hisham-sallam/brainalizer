@@ -135,21 +135,3 @@
 #callout.flip-x .callout-line { left: auto; right: -4px; --sx: -1; }
 #callout.flip-y .callout-box  { bottom: auto; top: 70px; }
 #callout.flip-y .callout-line { top: -4px; --sy: -1; }
-
-#contribution {
-  position: fixed;
-  left: 24px;
-  bottom: 24px;
-  z-index: 10;
-  pointer-events: none;
-
-  padding: 8px 14px;
-  border-radius: 6px;                      
-  background: rgba(34, 38, 44, 0.85);     
-  border: 1.5px solid var(--ui-accent);    
-  color: var(--ui-mist);
-  font: 500 24px/1.2 "Segoe UI", sans-serif;   
-  letter-spacing: 0.02em;
-}
-
-#contribution span { color: var(--ui-accent); }
