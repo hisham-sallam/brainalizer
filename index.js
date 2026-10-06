@@ -56,7 +56,7 @@ const RAY_INTERVAL = 50;
 let needs_raycast = false;
 let hoveredPart = null;
 
-loader.load('assets/brain.gltf', (gltf) => {
+loader.load('assets/brain.glb', (gltf) => {
     const model = gltf.scene;
     scene.add(model);
 
