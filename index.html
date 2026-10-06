@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Brainlizer</title>
+        <style>
+            body { margin: 0; }
+        </style>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script type="module" src="index.js"></script>
+        <div id="slider-ui">
+            <ul id="level-labels">
+                <li style="--i:0">Everything</li>
+                <li style="--i:1">Cortex</li>
+                <li style="--i:2">Cerebellum, Corpus Callosum</li>
+                <li style="--i:3">Hippocampus, Amygdala</li>
+                <li style="--i:4">Thalamus</li>
+                <li style="--i:5">Hypothalamus</li>
+                <li style="--i:6">Brainstem</li>
+            </ul>
+            <input type="range" id="slider" min="0" max="6" step="1" value="0">
+        </div>
+        <div id="contribution">Made By: Jordin-Lee Doak</div>
+
+        <div id="callout">
+            <svg class="callout-line" width="70" height="70" viewBox="0 0 70 70">
+                <line x1="4" y1="66" x2="70" y2="0" />
+                <circle cx="4" cy="66" r="4" />
+            </svg>
+            <div class="callout-box" id="callout-text"></div>
+        </div>
+    </body>
+</html>
