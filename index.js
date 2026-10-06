@@ -128,6 +128,22 @@ function hideCallout() {
     callout.classList.remove('visible');
 }
 
+function setSliderPartOpacity(highlightGroups = []) {
+    for (const part of options) {
+        part.material.transparent = true;
+        part.material.opacity = 0.05;
+
+        const shouldHighlight = highlightGroups.some((groupName) =>
+            brain_part_nodes.get(groupName)?.children.includes(part)
+        );
+
+        if (shouldHighlight) {
+            part.material.transparent = false;
+            part.material.opacity = 1;
+        }
+    }
+}
+
 function gameInit() {
 
     scene.background = new THREE.Color(0x888888);
@@ -294,67 +310,27 @@ document.getElementById('slider').addEventListener('input', (event) => {
             }
             break;
         case '1':
-            for (const part of options) {
-                part.material.transparent = true;
-                part.material.opacity = 0.05;
-                if (brain_part_nodes.get('Frontal_Lobe')?.children.includes(part) ||
-                    brain_part_nodes.get('Parietal_Lobe')?.children.includes(part) ||
-                    brain_part_nodes.get('Occipital_Lobe')?.children.includes(part) ||
-                    brain_part_nodes.get('Temporal_Lobe')?.children.includes(part)) {
-                    part.material.transparent = false;
-                    part.material.opacity = 1;
-                }
-            }
+            setSliderPartOpacity([
+                'Frontal_Lobe',
+                'Parietal_Lobe',
+                'Occipital_Lobe',
+                'Temporal_Lobe'
+            ]);
             break;
         case '2':
-            for (const part of options) {
-                part.material.transparent = true;
-                part.material.opacity = 0.05;
-                if (brain_part_nodes.get('Cerebellum')?.children.includes(part) || brain_part_nodes.get('Corpus_Callesum')?.children.includes(part)) {
-                    part.material.transparent = false;
-                    part.material.opacity = 1;
-                }
-            }   
+            setSliderPartOpacity(['Cerebellum', 'Corpus_Callesum']);
             break;
         case '3':
-            for (const part of options) {
-                part.material.transparent = true;
-                part.material.opacity = 0.05;
-                if (brain_part_nodes.get('Amygdala')?.children.includes(part) || brain_part_nodes.get('Hippocampus')?.children.includes(part)) {
-                    part.material.transparent = false;
-                    part.material.opacity = 1;
-                }
-            }
+            setSliderPartOpacity(['Amygdala', 'Hippocampus']);
             break;
         case '4':
-            for (const part of options) {
-                part.material.transparent = true;
-                part.material.opacity = 0.05;
-                if (brain_part_nodes.get('Thalamus')?.children.includes(part)) {
-                    part.material.transparent = false;
-                    part.material.opacity = 1;
-                } 
-            }
+            setSliderPartOpacity(['Thalamus']);
             break;
         case '5':
-            for (const part of options) {
-                part.material.transparent = true;
-                part.material.opacity = 0.05;
-                if (brain_part_nodes.get('Hypothalamus')?.children.includes(part)) {
-                    part.material.transparent = false;
-                    part.material.opacity = 1;
-                }
-            }
+            setSliderPartOpacity(['Hypothalamus']);
             break;
         case '6':
-            for (const part of options) {   
-                part.material.transparent = true;
-                part.material.opacity = 0.05;
-                if (brain_part_nodes.get('Brainstem')?.children.includes(part)) {
-                    part.material.transparent = false;
-                    part.material.opacity = 1;
-                }
-            }
+            setSliderPartOpacity(['Brainstem']);
             break;
     }
 });
